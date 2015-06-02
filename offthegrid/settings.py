@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import dj_database_url
 
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -26,23 +25,12 @@ SECRET_KEY = 'yy86ya6c+jemg+s3z9_a3q4u(#mr@&=pb17+dvb567*vnelz55'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-# Parse database configuration from $DATABASE_URL
-DATABASES['default'] =  dj_database_url.config()
-
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-
 # Application definition
 
 INSTALLED_APPS = (
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
-    # 'django.contrib.sessions',
+    'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vendors',
@@ -50,11 +38,11 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    # 'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    # 'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -87,13 +75,21 @@ WSGI_APPLICATION = 'offthegrid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'database',
-        'USER': 'yawhide',
+        'NAME': '',
+        'USER': '',
         'PASSWORD': '',
         'HOST': '',
     }
 }
 
+import dj_database_url
+# Parse database configuration from $DATABASE_URL
+DATABASES['default'] =  dj_database_url.config()
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -113,4 +109,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
