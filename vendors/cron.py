@@ -58,3 +58,7 @@ def saveEventIntoDB(event_id):
                 except:
                     e.vendors.add(vendor)
                     #print('added vendor:{0} to e:{1}'.format(vendor, e))
+
+
+
+# food truck, food stand
