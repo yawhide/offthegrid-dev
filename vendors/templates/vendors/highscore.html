@@ -1,0 +1,9 @@
+{% if vendors %}
+  <ul>
+  {% for vendor in vendors %}
+    <li><a href="/vendor/{{ vendor.vendor.id }}/">{{ vendor.vendor.name }}</a><span>{{ vendor.occurrences }}</span></li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No vendors have been active for the past 30 days!</p>
+{% endif %}
