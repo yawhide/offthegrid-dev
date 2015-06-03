@@ -102,6 +102,10 @@ li a {
   vertical-align: bottom;
 }
 
+.margin-top-20 {
+  margin-top: 20px;
+}
+
 /* Larger than phone */
 @media (min-width: 550px) {
   .header {

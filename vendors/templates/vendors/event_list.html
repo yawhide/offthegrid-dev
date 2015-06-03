@@ -6,7 +6,15 @@
 {% if latest_events %}
     <ul>
     {% for event in latest_events %}
-        <li><a href="{% url 'event' event.id %}">{{ event.name }}</a><br><span class='event-date'>{{ event.start_time }}</span></li>
+        <li>
+          <a href="{% url 'event' event.id %}">{{ event.name }}</a>
+          <br>
+          {% load tz %}
+
+          {% timezone "America/Los_Angeles" %}
+            <span class='event-date'>{{ event.start_time }} PDT</span>
+          {% endtimezone %}
+        </li>
     {% endfor %}
     </ul>
 {% else %}
