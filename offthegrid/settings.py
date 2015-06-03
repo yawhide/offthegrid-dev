@@ -1,16 +1,6 @@
 import os
 import pytz
 
-from django.utils import timezone
-
-class TimezoneMiddleware(object):
-    def process_request(self, request):
-        tzname = request.session.get('django_timezone')
-        if tzname:
-            timezone.activate(pytz.timezone(tzname))
-        else:
-            timezone.deactivate()
-
 #BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -37,7 +27,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'TimezoneMiddleware',
 )
 
 ROOT_URLCONF = 'offthegrid.urls'
