@@ -1,0 +1,16 @@
+{% extends 'vendors/base.html' %}
+
+{% block body_block %}
+<h4>Events</h4>
+
+{% if latest_events %}
+    <ul>
+    {% for event in latest_events %}
+        <li><a href="{% url 'event' event.id %}">{{ event.name }}</a><br><span class='event-date'>{{ event.start_time }}</span></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No events are available.</p>
+{% endif %}
+
+{% endblock %}

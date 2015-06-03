@@ -1,4 +1,11 @@
-<p>{{ vendor.name }}</p>
-<p>Occurences: {{ occurrences }}</p>
-<p>Vehicle type: {{ vendor.vehicle }}</p>
-<p><a href='{{ vendor.url }}'>{{ vendor.url }}</a></p>
+{% extends 'vendors/base.html' %}
+
+{% block body_block %}
+
+<img src='{{ vendor.img }}'>
+<div class='vendor-title'>{{ vendor.name }} ({{ vendor.vehicle }})</div>
+<p>They have been to {{ occurrences }} event(s) in the past 30 days.</p>
+<p><a href='{{ vendor.url }}' target='_blank'>{{ vendor.url }}</a></p>
+
+
+{% endblock %}

@@ -1,3 +1,7 @@
+{% extends 'vendors/base.html' %}
+
+{% block body_block %}
+
 <p>{{ event.name }}</p>
 
 {% if vendors %}
@@ -9,3 +13,6 @@
 {% else %}
   <p>No vendors have been confirmed!</p>
 {% endif %}
+
+
+{% endblock %}

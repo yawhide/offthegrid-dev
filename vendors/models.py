@@ -2,7 +2,6 @@ from datetime import timedelta
 
 from django.db import models
 from django.utils import timezone, encoding, decorators
-# Create your models here.
 
 class Vendor(models.Model):
   vehicle = models.CharField(max_length=50)

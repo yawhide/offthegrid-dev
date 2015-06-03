@@ -1,19 +1,8 @@
-{% load staticfiles %}
-<meta charset="utf-8">
-<title>OffTheGrid-Dev</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends 'vendors/base.html' %}
 
-<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{% static 'vendors/css/normalize.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'vendors/css/skeleton.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'vendors/css/style.css' %}">
+{% block body_block %}
 
-{% if latest_events %}
-    <ul>
-    {% for event in latest_events %}
-        <li><a href="{% url 'event' event.id %}">{{ event.name }}</a><span> {{ event.date }}</span></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No events are available.</p>
-{% endif %}
+<p>This is my submission for Ginger.io!</p>
+<p>Ginger.io has a very unique product and I think its values align with mine - I want to positively contribute to the world.</p>
+
+{% endblock %}

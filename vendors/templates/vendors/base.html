@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% load staticfiles %}
+        <meta charset="utf-8">
+        <title>OffTheGrid-Dev</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/normalize.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/skeleton.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/style.css' %}">
+    </head>
+
+    <body>
+      <div class="navbar-toggle collapsed" type="button" data-toggle="collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar secondBar"></span>
+        <span class="icon-bar thirdBar"></span>
+      </div>
+      <ul class="menu">
+        <a class="menu-item" href="/">offthegrid dev</a>
+        <a class="menu-item" href="/events/">events</a>
+        <a class="menu-item" href="/highscore/">vendor highscores</a>
+      </ul>
+      <nav class="navbar">
+        <div class="container">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a class="navbar-link" href="/">OffTheGrid Dev</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="/events/" data-popover="#codeNavPopover">Events</a>
+            </li>
+            <li class="navbar-item">
+              <a class="navbar-link" href="/highscore/">Vendor Highscores</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class='container'>
+        {% block body_block %}{% endblock %}
+      </div>
+      <script>
+        $toggle = document.querySelector('.navbar-toggle')
+        $menu = document.querySelector('.menu')
+        $toggle.onclick = function(){
+          if($menu.classList.contains('active'))
+            $menu.classList.remove('active')
+          else
+            $menu.classList.add('active')
+        }
+      </script>
+    </body>
+</html>
