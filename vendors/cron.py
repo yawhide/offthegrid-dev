@@ -17,11 +17,10 @@ def makeFBApiCall(pathname):
 def get_facebook_events():
     response = makeFBApiCall('OffTheGridSF/events')
     for event in response['data']:
-        saveEventIntoDB(event['id'])
+        event_response = makeFBApiCall(event['id'])
+        saveEventIntoDB(event_response)
 
-
-def saveEventIntoDB(event_id):
-    response = makeFBApiCall(event_id)
+def saveEventIntoDB(response):
     start_time = numpy.datetime64(response['start_time']).tolist()
     if response.get('end_time'):
         end_time = numpy.datetime64(response['end_time']).tolist()

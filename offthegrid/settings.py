@@ -6,7 +6,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 SECRET_KEY = 'yy86ya6c+jemg+s3z9_a3q4u(#mr@&=pb17+dvb567*vnelz55'
 
-DEBUG = True
+DEBUG = False
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -52,15 +52,17 @@ WSGI_APPLICATION = 'offthegrid.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
+        'NAME': 'test',
         'USER': '',
         'PASSWORD': '',
-        'HOST': '',
+        'HOST': 'localhost',
     }
 }
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgres://avdgtjecnypcuv:vJX2YZs4iMVKyWMk73gqP0qPtx@ec2-54-204-35-248.compute-1.amazonaws.com:5432/d3drpdbb86161j')
+if not DEBUG:
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config(default='postgres://avdgtjecnypcuv:vJX2YZs4iMVKyWMk73gqP0qPtx@ec2-54-204-35-248.compute-1.amazonaws.com:5432/d3drpdbb86161j')
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']

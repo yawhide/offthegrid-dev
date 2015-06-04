@@ -23,4 +23,4 @@ class Event(models.Model):
   vendors = models.ManyToManyField(Vendor)
 
   def __str__(self):
-    return '%s %s %s' % (self.location, self.name, self.facebook_id)
+    return '%s %s %s %s' % (self.name, self.facebook_id, self.start_time, self.end_time)
